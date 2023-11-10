@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -50,6 +52,12 @@ public class MainActivity extends AppCompatActivity {
         GridView gridView = findViewById(R.id.gridview);
         gridView.setAdapter(cubeeAdapter);
         gridView.setNumColumns(3);
+
+        String[] messageArray = new String[]{"message 1","message 2","message 3","message 4","message 5","message 6"};
+        ArrayAdapter<String> messageAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,messageArray);
+
+        ListView listView = findViewById(R.id.listview);
+        listView.setAdapter(messageAdapter);
     }
 
     public class MyAdapter extends BaseAdapter{
